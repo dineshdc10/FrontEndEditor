@@ -6,17 +6,12 @@ import AceEditor from 'react-ace';
 import 'brace/mode/html';
 import 'brace/mode/css';
 import 'brace/mode/javascript';
-import 'brace/mode/java';
-import 'brace/mode/python';
 import 'brace/mode/xml';
-import 'brace/mode/ruby';
 import 'brace/mode/sass';
 import 'brace/mode/markdown';
 import 'brace/mode/mysql';
 import 'brace/mode/json';
 import 'brace/mode/handlebars';
-import 'brace/mode/golang';
-import 'brace/mode/csharp';
 import 'brace/mode/elixir';
 import 'brace/mode/typescript';
 
@@ -33,10 +28,6 @@ import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import MenuItem from '@material-ui/core/MenuItem';
 
 export default class App extends React.Component {
 
@@ -190,44 +181,36 @@ export default class App extends React.Component {
                 <AppBar position="static" color={this.state.darkmode ? 'secondary' : 'primary'}
                   style={this.state.darkmode ? { backgroundColor: '#404452' } : { backgroundColor: '#1976d2' }}>
                   <Toolbar>
-                    <Typography variant="h6">
-                      DC FrontEnd Editor
-                    </Typography>
-                    <Button
-                      endIcon={<BrightnessMediumIcon />}
-                      onClick={this.onThemeChange}
-                      style={{ marginLeft: 20, color: '#fff' }}
-                    >
-                      Dark Mode
-                  </Button>
-                    <Button
-                      endIcon={<SaveIcon />}
-                      onClick={this.downloadToTxtFile}
-                      style={{ marginLeft: 20, color: '#fff' }}
-                    >
-                      Save
-              </Button>
-                    <Button
-                      endIcon={<DoubleArrowIcon />}
-                      onClick={this.onRun}
-                      style={{ marginLeft: 20, color: '#fff' }}
-                    >
-                      Run
-              </Button>
-                    {/* <FormControl style={{ marginLeft: 20, color: '#fff' }}>
-                      <InputLabel id="lan-native-simple" style={{ color: '#fff' }} >Language</InputLabel>
-                      <Select
-                        style={{ color: '#fff' }}
-                        labelId="lan-native-simple"
-                        id="lan-native-simple-select"
-                        value={this.state.selectedLanguage}
-                        onChange={this.onLangChange}
-                      >
-                        {this.state.languages.map(lan => {
-                          return <MenuItem value={lan}>{lan}</MenuItem>
-                        })}
-                      </Select>
-                    </FormControl> */}
+                    <Grid container>
+                      <Grid item xs={12} sm={6} md={6} style={{ display: "flex", alignItems: "center" }}>
+                        <Typography variant="h6">
+                          DC FrontEnd Editor
+                        </Typography>
+                        <Button
+                          endIcon={<DoubleArrowIcon />}
+                          onClick={this.onRun}
+                          style={{ marginLeft: 20, color: '#fff' }}
+                        >
+                          Run
+                        </Button>
+                      </Grid>
+                      <Grid item xs={9} sm={6} md={6}>
+                        <Button
+                          endIcon={<BrightnessMediumIcon />}
+                          onClick={this.onThemeChange}
+                          style={{ marginLeft: 20, color: '#fff', float: 'right' }}
+                        >
+                          {this.state.darkmode ? "Light Mode" : "Dark Mode"}
+                        </Button>
+                        <Button
+                          endIcon={<SaveIcon />}
+                          onClick={this.downloadToTxtFile}
+                          style={{ color: '#fff', float: 'right' }}
+                        >
+                          Save
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Toolbar>
                 </AppBar>
               </Grid>
@@ -262,7 +245,7 @@ export default class App extends React.Component {
           </Grid>
           <Grid item xs={12} sm={12} style={{ display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
             <i style={this.state.darkmode ? { color: '#ffffff' } : { color: '#404452' }}> Made with ❤️ by
-            <a href="https://www.linkedin.com/in/dineshdc7"
+              <a href="https://www.linkedin.com/in/dineshdc7"
                 style={this.state.darkmode ? { color: 'hotpink', textDecoration: 'none' } :
                   { color: 'red', textDecoration: 'none' }}> <b>Dinesh Choudhary</b></a></i>
           </Grid>
